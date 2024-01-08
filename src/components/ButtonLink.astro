@@ -1,0 +1,39 @@
+---
+interface Props {
+  href: string
+  target?: '_blank'
+}
+const { href, target } = Astro.props
+---
+
+<a
+  {href}
+  {target}
+  class='button'
+  rel={href.startsWith('/') ? undefined : 'noopener noreferrer'}
+>
+  <slot />
+</a>
+
+<style>
+  .button {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding: var(--size-spacing-2) var(--size-spacing-5);
+    border: 1px solid currentColor;
+    background-color: transparent;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    text-align: center;
+    gap: var(--size-spacing-2);
+    outline: 4px solid transparent;
+  }
+
+  .button:focus,
+  .button:hover {
+    outline-color: seagreen;
+    border-color: transparent;
+  }
+</style>

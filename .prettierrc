@@ -1,0 +1,35 @@
+{
+  "jsxSingleQuote": true,
+  "printWidth": 100,
+  "semi": false,
+  "singleAttributePerLine": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "overrides": [
+    {
+      "files": ["SEO.astro"],
+      "options": {
+        "singleAttributePerLine": false
+      }
+    },
+    {
+      "files": ["*.json"],
+      "options": {
+        "useTabs": false
+      }
+    },
+    {
+      "files": ["*.svelte"],
+      "options": {
+        "semi": true,
+        "singleAttributePerLine": false,
+        "svelteAllowShorthand": false,
+        "svelteBracketNewLine": true,
+        "svelteIndentScriptAndStyle": true,
+        "svelteSortOrder": "options-scripts-markup-styles",
+        "svelteStrictMode": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "paths": {
+      "@config": ["config.ts"],
+      "@components/*": ["components/*"]
+    }
+  },
+  "exclude": ["node_modules", ".vscode", "dist"]
+}

@@ -1,0 +1,51 @@
+---
+import { SITE } from '@config'
+
+export interface Props {
+  description?: string
+  title?: string
+  ogImage?: string
+}
+
+const { description, title = SITE.name, ogImage = '/seo/ogImage.jpg' } = Astro.props
+
+const ogImageUrl = SITE.website + ogImage
+
+const rawCanonicalURL = new URL(Astro.url.pathname, Astro.site).href
+
+/**
+ * Currently, the rawCanonicalUrl ends with '/' in  build, but not in dev.
+ * Check if this is fixed in future releases
+ */
+
+const canonicalURL = rawCanonicalURL.endsWith('/') ? rawCanonicalURL.slice(0, -1) : rawCanonicalURL
+---
+
+<!-- Common -->
+<title>{title}</title>
+<link rel='canonical' href={canonicalURL} />
+<meta charset='UTF-8' />
+<meta name='title' content={title} />
+<meta name='description' content={description} />
+<meta name='viewport' content='width=device-width' />
+<meta name='robots' content='index, follow' />
+
+<!-- OpenGraph Tags -->
+<meta name='description' property='og:description' content={description} />
+<meta property='og:image:alt' content={`${title} image`} />
+<meta property='og:image' content={ogImageUrl} />
+<meta property='og:locale' content='en_US' />
+<meta property='og:locale:alternate' content='en_GB' />
+<meta property='og:locale:alternate' content='es_ES' />
+<meta property='og:site_name' content={title} />
+<meta property='og:title' content={title} />
+<meta property='og:type' content='article' />
+<meta property='og:url' content={canonicalURL} />
+
+<!-- Twitter Tags -->
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:description' content={description} />
+<meta name='twitter:image:alt' content={`${title} image`} />
+<meta name='twitter:image' content={ogImageUrl} />
+<meta name='twitter:site' content={title} />
+<meta name='twitter:title' content={title} />

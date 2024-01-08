@@ -1,0 +1,51 @@
+/* Sizes */
+:root {
+  --border-radius: 8px;
+  --section-width: 90%;
+
+  --size-spacing-1: 0.4rem;
+  --size-spacing-2: 0.8rem;
+  --size-spacing-3: 1rem;
+  --size-spacing-4: 1.5rem;
+  --size-spacing-5: 2rem;
+  --size-spacing-6: 3rem;
+}
+
+@media only screen and (min-width: 48rem) {
+  :root {
+    --section-width: 65%;
+
+    --size-spacing-1: 0.6rem;
+    --size-spacing-2: 1rem;
+    --size-spacing-3: 1.5rem;
+    --size-spacing-4: 2rem;
+    --size-spacing-5: 2.25rem;
+    --size-spacing-6: 3.25rem;
+  }
+}
+
+@media only screen and (min-width: 64rem) {
+  :root {
+    --section-width: 50%;
+
+    --size-spacing-1: 0.6rem;
+    --size-spacing-2: 1rem;
+    --size-spacing-3: 1.5rem;
+    --size-spacing-4: 2rem;
+    --size-spacing-5: 2.25rem;
+    --size-spacing-6: 3.5rem;
+  }
+}
+
+/* Colors */
+:root {
+  color-scheme: light;
+  --color-title: black;
+  --background-color: #cbcbcb;
+}
+
+.theme-dark {
+  color-scheme: dark;
+  --background-color: #23262d;
+  --color-title: white;
+}
