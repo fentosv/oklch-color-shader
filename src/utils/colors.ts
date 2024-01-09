@@ -1,5 +1,7 @@
-import { parseHex, converter } from 'culori/fn'
+import { parseHex, converter, useMode, modeOklch } from 'culori/fn'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const oklch = useMode(modeOklch)
 const oklchConverter = converter('oklch')
 
 export default function colors(color: string) {
