@@ -17,9 +17,12 @@
   "dependencies": {
     "@astrojs/svelte": "5.0.3",
     "astro": "4.1.1",
+    "colorjs.io": "0.4.5",
+    "culori": "3.3.0",
     "svelte": "4.2.8"
   },
   "devDependencies": {
+    "@types/culori": "2.0.4",
     "@typescript-eslint/eslint-plugin": "6.18.0",
     "@typescript-eslint/parser": "6.18.0",
     "autoprefixer": "10.4.16",
