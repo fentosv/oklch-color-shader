@@ -1,7 +1,6 @@
 ---
 import { SITE } from '../config'
-import ButtonLink from '../components/ButtonLink.astro'
-import Counter from '../components/Counter.svelte'
+import ColorPicker from '../components/ColorPicker.svelte'
 import Layout from '../layouts/Layout.astro'
 ---
 
@@ -11,11 +10,8 @@ import Layout from '../layouts/Layout.astro'
 >
   <main>
     <section class='theme-switcher-container'>
-      <p>hola</p>
-      <p class='p'>hola</p>
-      <Counter client:visible />
+      <ColorPicker client:visible />
     </section>
-    <ButtonLink href='/another-page'>Another Page</ButtonLink>
   </main>
 </Layout>
 
@@ -28,20 +24,5 @@ import Layout from '../layouts/Layout.astro'
     color: white;
     font-size: 20px;
     line-height: 1.6;
-  }
-
-  /* 
-   - L (lightness): 0-1. Black to white
-   - C (chroma): 0-0.5.Saturation
-   - Hue angle: 0-360
-   - a (opacity): 0-1
-  */
-
-  p {
-    background-color: oklch(60% 0.57 161);
-  }
-
-  .p {
-    background-color: oklch(60% 0 161);
   }
 </style>
