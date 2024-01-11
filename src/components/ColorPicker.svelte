@@ -3,13 +3,9 @@
   // 👉🏽 https://github.com/sveltejs/kit/issues/10501
 
   import { type Oklch } from 'culori/fn';
+  import OpacityShades from './OpacityShades.svelte';
 
-  import {
-    formatOklchToString,
-    convertToOklch,
-    formatToHex,
-    getOpacityShades,
-  } from 'utils/colors.ts';
+  import { formatOklchToString, convertToOklch, formatToHex } from 'utils/colors.ts';
 
   const colorsToParse = [
     'red',
@@ -35,7 +31,6 @@
       colorOklch = oklchColor;
       colorOklchCss = formatOklchToString(oklchColor);
       colorHex = formatToHex(oklchColor);
-      getOpacityShades(oklchColor);
     }
   }
 
@@ -65,6 +60,7 @@
 
   {#if colorOklch}
     <p>Your oklch color: <strong>{colorOklchCss}</strong></p>
+    <OpacityShades color={colorOklch}></OpacityShades>
   {/if}
   {#if errorColor}
     <p>Color error: <strong>{errorColor}</strong></p>
