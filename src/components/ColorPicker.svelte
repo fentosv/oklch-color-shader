@@ -1,5 +1,5 @@
-<script>
-  import colors from 'utils/colors.ts';
+<script lang="ts">
+  import { convertOklchToCss, convertToOklch, formatToHex } from 'utils/colors.ts';
 
   const colorsToParse = [
     'red',
@@ -11,16 +11,22 @@
 
   let colorHex = '#ffffff';
   let color = '#ffffff';
-  let colorOklch = null;
-  let colorArray = [];
-  let errorColor = null;
+  let colorOklch = '';
+  let colorArray: string[] = [];
+  let errorColor = '';
 
-  function handleChange(e) {
-    const ogColor = e.target.value;
-    const { oklchColor, hexColor, cssOklchColor } = colors(ogColor);
+  function handleChange(e: Event) {
+    const target = e.target as HTMLInputElement;
+    const ogColor = target.value;
     color = ogColor;
-    colorHex = hexColor;
-    colorOklch = cssOklchColor;
+
+    const oklchColor = convertToOklch(ogColor);
+
+    if (oklchColor) {
+      const cssOklchColor = convertOklchToCss(oklchColor);
+      colorHex = formatToHex(oklchColor);
+      colorOklch = cssOklchColor;
+    }
   }
 </script>
 
