@@ -16,19 +16,17 @@
     'oklch(70% 0.1 159)',
   ];
 
-  let colorHex = '#ffffff';
-  let color = '#ffffff';
+  let color = '#ff7000';
+  let colorHex: string;
   let colorOklch: Oklch;
   let colorOklchCss = '';
-  let colorArray: string[] = [];
+
+  // TODO handle errors
   let errorColor = '';
 
-  function handleChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    const ogColor = target.value;
-    color = ogColor;
-
-    const oklchColor = convertToOklch(ogColor);
+  $: {
+    color;
+    const oklchColor = convertToOklch(color);
 
     if (oklchColor) {
       colorOklch = oklchColor;
@@ -37,6 +35,12 @@
       getOpacityShades(oklchColor);
     }
   }
+
+  function handleChange(e: Event) {
+    const target = e.target as HTMLInputElement;
+    const ogColor = target.value;
+    color = ogColor;
+  }
 </script>
 
 <article>
@@ -44,11 +48,7 @@
   <input type="color" on:input={handleChange} bind:value={colorHex} name="color" />
 
   <div class="colors" style={`background-color: ${color};`}>Original</div>
-  <div class="colors" style={`background-color: ${colorOklchCss};`}>Result</div>
-
-  {#each colorArray as genColor}
-    <div style={`background-color: ${genColor};`}>Result</div>
-  {/each}
+  <div class="colors" style={`background-color: ${colorOklchCss};`}>In Oklch</div>
 
   <div style="display: flex; flex-direction: column;">
     {#each colorsToParse as colorToParse}
@@ -60,7 +60,7 @@
   </div>
 
   {#if colorOklch}
-    <p>Your oklch color: <strong>{colorOklch}</strong></p>
+    <p>Your oklch color: <strong>{colorOklchCss}</strong></p>
   {/if}
   {#if errorColor}
     <p>Color error: <strong>{errorColor}</strong></p>
