@@ -1,4 +1,7 @@
 <script lang="ts">
+  // Svelte somehow removes color on initial render
+  // 👉🏽 https://github.com/sveltejs/kit/issues/10501
+
   import { type Oklch } from 'culori/fn';
 
   import {
@@ -17,9 +20,9 @@
   ];
 
   let color = '#ff7000';
-  let colorHex: string;
+  let colorHex = color;
   let colorOklch: Oklch;
-  let colorOklchCss = '';
+  let colorOklchCss: string;
 
   // TODO handle errors
   let errorColor = '';
@@ -45,6 +48,7 @@
 
 <article>
   Color: {color}
+
   <input type="color" on:input={handleChange} bind:value={colorHex} name="color" />
 
   <div class="colors" style={`background-color: ${color};`}>Original</div>
