@@ -23,9 +23,8 @@
     const oklchColor = convertToOklch(ogColor);
 
     if (oklchColor) {
-      const cssOklchColor = convertOklchToCss(oklchColor);
+      colorOklch = convertOklchToCss(oklchColor);
       colorHex = formatToHex(oklchColor);
-      colorOklch = cssOklchColor;
     }
   }
 </script>
