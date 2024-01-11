@@ -6,5 +6,6 @@
     "typescript", // Enable .ts
     "typescriptreact" // Enable .tsx
   ],
-  "stylelint.validate": ["astro", "css", "html", "svelte"]
+  "stylelint.validate": ["astro", "css", "html", "svelte"],
+  "cSpell.words": ["culori"]
 }
