@@ -45,6 +45,7 @@
   Color: {color}
 
   <input type="color" on:input={handleChange} bind:value={colorHex} name="color" />
+  <input type="text" on:input={handleChange} bind:value={color} name="color" />
 
   <div class="colors" style={`background-color: ${color};`}>Original</div>
   <div class="colors" style={`background-color: ${colorOklchCss};`}>In Oklch</div>
