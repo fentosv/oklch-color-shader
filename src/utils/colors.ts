@@ -11,7 +11,6 @@ import {
   modeHsl,
   modeLab,
   modeP3,
-  parse,
   type Oklch,
   type Color,
 } from 'culori/fn'
@@ -33,21 +32,22 @@ function formatOklchValue(num: number) {
   return parseFloat(num.toFixed(3))
 }
 
-function formatOklch(color: Oklch) {
+export function formatOklch(color: Oklch) {
   const { l, c, h } = color
   return `oklch(${formatOklchValue(l)} ${formatOklchValue(c)} ${h ? formatOklchValue(h) : ''})`
 }
 
-export default function colors(color: string) {
-  const parsedColor = parse(color)
+export function formatToHex(color: Color) {
   const hexColor = formatHex(color)
-  const oklchColor = oklchConverter(color)
-  const cssOklchColor = formatOklch(oklchColor)
+  return hexColor
+}
 
-  return {
-    hexColor,
-    parsedColor,
-    oklchColor,
-    cssOklchColor,
-  }
+export function convertOklchToCss(color: Oklch) {
+  const cssOklchColor = formatOklch(color)
+  return cssOklchColor
+}
+
+export function convertToOklch(color: string) {
+  const oklchColor = oklchConverter(color)
+  return oklchColor
 }
