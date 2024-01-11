@@ -2,7 +2,7 @@
   import { type Oklch } from 'culori/fn';
 
   import {
-    convertOklchToCss,
+    formatOklchToString,
     convertToOklch,
     formatToHex,
     getOpacityShades,
@@ -30,7 +30,7 @@
 
     if (oklchColor) {
       colorOklch = oklchColor;
-      colorOklchCss = convertOklchToCss(oklchColor);
+      colorOklchCss = formatOklchToString(oklchColor);
       colorHex = formatToHex(oklchColor);
       getOpacityShades(oklchColor);
     }
