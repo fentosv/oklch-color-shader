@@ -1,5 +1,12 @@
 <script lang="ts">
-  import { convertOklchToCss, convertToOklch, formatToHex } from 'utils/colors.ts';
+  import { type Oklch } from 'culori/fn';
+
+  import {
+    convertOklchToCss,
+    convertToOklch,
+    formatToHex,
+    getOpacityShades,
+  } from 'utils/colors.ts';
 
   const colorsToParse = [
     'red',
@@ -11,7 +18,8 @@
 
   let colorHex = '#ffffff';
   let color = '#ffffff';
-  let colorOklch = '';
+  let colorOklch: Oklch;
+  let colorOklchCss = '';
   let colorArray: string[] = [];
   let errorColor = '';
 
@@ -23,8 +31,10 @@
     const oklchColor = convertToOklch(ogColor);
 
     if (oklchColor) {
-      colorOklch = convertOklchToCss(oklchColor);
+      colorOklch = oklchColor;
+      colorOklchCss = convertOklchToCss(oklchColor);
       colorHex = formatToHex(oklchColor);
+      getOpacityShades(oklchColor);
     }
   }
 </script>
@@ -34,7 +44,7 @@
   <input type="color" on:input={handleChange} bind:value={colorHex} name="color" />
 
   <div class="colors" style={`background-color: ${color};`}>Original</div>
-  <div class="colors" style={`background-color: ${colorOklch};`}>Result</div>
+  <div class="colors" style={`background-color: ${colorOklchCss};`}>Result</div>
 
   {#each colorArray as genColor}
     <div style={`background-color: ${genColor};`}>Result</div>
