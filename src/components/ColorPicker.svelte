@@ -29,7 +29,6 @@
 
   function handleChange(e: Event) {
     const target = e.target as HTMLInputElement;
-    console.log(target);
     const ogColor = target.value;
     color = ogColor;
   }
