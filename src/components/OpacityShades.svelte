@@ -9,11 +9,9 @@
 </script>
 
 <article>
-  Color: {color}
-
   {#if colorArray.length > 0}
     {#each colorArray as genColor}
-      <div style={`background-color: ${genColor};`}>Result</div>
+      <p style={`background-color: ${genColor};`}>Result</p>
     {/each}
   {/if}
 </article>
