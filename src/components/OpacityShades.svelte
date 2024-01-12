@@ -1,6 +1,6 @@
 <script lang="ts">
   import { type Oklch } from 'culori/fn';
-  import { getOpacityShades } from 'utils/colors';
+  import { formatOklchToString, getOpacityShades } from '../utils/colors';
 
   export let color: Oklch;
   let colorArray: string[] = [];
@@ -9,6 +9,8 @@
 </script>
 
 <article>
+  <p style={`background-color: ${formatOklchToString(color)};`}>Selected color</p>
+
   {#if colorArray.length > 0}
     {#each colorArray as genColor}
       <p style={`background-color: ${genColor};`}>Result</p>
