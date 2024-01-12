@@ -8,7 +8,10 @@
 
   import { convertToOklch, formatToHex } from '../utils/colors.ts';
 
-  const isNotHex4Char = (c: string) => c.startsWith('#') && c.length !== 5;
+  const isNotHex4Char = (c: string) => {
+    if (c.startsWith('#')) return c.length !== 5;
+    else return true;
+  };
 
   let color = '#ff7000';
   let colorHex = color;
