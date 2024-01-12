@@ -2,7 +2,7 @@ import type { Site, SocialObjects } from './types'
 
 export const SITE: Site = {
   description: 'Your meta description.',
-  name: 'Fentos Template',
+  name: 'OKLCK Color Shader',
   website: 'https://fentos.template',
 }
 
