@@ -14,7 +14,7 @@
   let colorOklchCss: string;
 
   // TODO handle errors
-  let errorColor = '';
+  let errorColor: true | null = null;
 
   $: {
     color;
@@ -24,6 +24,8 @@
       colorOklch = oklchColor;
       colorOklchCss = formatOklchToString(oklchColor);
       colorHex = formatToHex(oklchColor);
+    } else {
+      errorColor = true;
     }
   }
 
@@ -35,22 +37,22 @@
 </script>
 
 <article>
-  Color: {color}
-
   <ColorSelector bind:color={color}></ColorSelector>
 
   <input type="color" on:input={handleChange} bind:value={colorHex} name="color" />
   <input type="text" on:input={handleChange} bind:value={color} name="color" />
 
-  <div class="colors" style={`background-color: ${color};`}>Original</div>
-  <div class="colors" style={`background-color: ${colorOklchCss};`}>In Oklch</div>
+  <p>Selected color: {color}</p>
+
+  <p class="colors" style={`background-color: ${color};`}>Original</p>
+  <p class="colors" style={`background-color: ${colorOklchCss};`}>In Oklch</p>
 
   {#if colorOklch}
     <p>Your oklch color: <strong>{colorOklchCss}</strong></p>
-    <OpacityShades color={colorOklch}></OpacityShades>
+    <OpacityShades color={colorOklch} />
   {/if}
   {#if errorColor}
-    <p>Color error: <strong>{errorColor}</strong></p>
+    <h1>This color is not valid</h1>
   {/if}
 </article>
 
