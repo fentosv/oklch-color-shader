@@ -53,7 +53,7 @@
   </form>
 
   {#if !errorColor}
-    <p style={`background-color: ${color};`}>Original</p>
+    <p style={`background-color: ${color};`}>Non-transformed selected color</p>
   {/if}
 
   {#if errorColor}
