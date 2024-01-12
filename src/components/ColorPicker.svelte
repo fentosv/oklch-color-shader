@@ -14,7 +14,6 @@
   let colorHex = color;
   let colorOklch: Oklch;
 
-  // TODO handle errors
   let errorColor: boolean = false;
 
   $: {
