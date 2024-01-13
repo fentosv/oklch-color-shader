@@ -8,11 +8,6 @@
 
   import { convertToOklch, formatToHex } from '../utils/colors.ts';
 
-  const isNotHex4Char = (c: string) => {
-    if (c.startsWith('#')) return c.length !== 5;
-    else return true;
-  };
-
   let color = '#ff7000';
   let colorHex = color;
   let colorOklch: Oklch;
@@ -56,7 +51,7 @@
   </form>
 
   {#if !errorColor}
-    <p style={`background-color: ${colorHex};`}>Non-transformed selected color</p>
+    <p style={`background-color: ${color};`}>Non-transformed selected color</p>
   {/if}
 
   {#if errorColor}
