@@ -6,6 +6,7 @@
   import { convertToOklch, formatToHex } from '../utils/colors.ts';
   import ColorSelector from './dev/ColorSelector.svelte';
   import OpacityShades from './OpacityShades.svelte';
+  import SupportedColors from './SupportedColors.svelte';
 
   let color = '#ff7000';
   let colorHex = color;
@@ -35,6 +36,7 @@
 </script>
 
 <article>
+  <SupportedColors></SupportedColors>
   <ColorSelector bind:color={color}></ColorSelector>
 
   <form action="">
