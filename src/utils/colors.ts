@@ -11,7 +11,6 @@ import {
   modeHsl,
   modeLab,
   modeP3,
-  parse,
   type Oklch,
   type Color,
 } from 'culori/fn'
@@ -27,6 +26,7 @@ export const lab = useMode(modeLab)
 export const p3 = useMode(modeP3)
 
 const oklchConverter = converter('oklch')
+const rgbConverter = converter('rgb')
 
 function formatOklchValue(num: number) {
   //Delete trailing 0 and only 3 decimals
@@ -34,13 +34,20 @@ function formatOklchValue(num: number) {
 }
 
 export function formatOklchToString(color: Oklch) {
-  const { l, c, h } = color
-  return `oklch(${formatOklchValue(l)} ${formatOklchValue(c)} ${h ? formatOklchValue(h) : ''})`
+  const { l, c, h, alpha } = color
+  return `oklch(${formatOklchValue(l)} ${formatOklchValue(c)} ${h ? formatOklchValue(h) : ''}  ${
+    alpha ? formatOklchValue(alpha) : ''
+  })`
 }
 
 export function formatToHex(color: Color) {
   const hexColor = formatHex(color)
   return hexColor
+}
+
+export function colorToRgb(color: Color) {
+  const rgbColor = rgbConverter(color)
+  return rgbColor
 }
 
 export function convertToOklch(color: string) {
@@ -49,7 +56,8 @@ export function convertToOklch(color: string) {
 }
 
 export function getOpacityShades(color: Oklch) {
-  console.log(color)
+  const { l, c, h, alpha } = color
+  // console.log({ l, c, h, alpha })
   // const parsedColor = parse(color)
   // console.log(parsedColor)
 }

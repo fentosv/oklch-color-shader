@@ -24,7 +24,7 @@
 
     const oklchColor = convertToOklch(color);
 
-    if (oklchColor && isNotHex4Char(color)) {
+    if (oklchColor) {
       colorOklch = oklchColor;
       colorHex = formatToHex(oklchColor);
       errorColor = false;
@@ -56,7 +56,7 @@
   </form>
 
   {#if !errorColor}
-    <p style={`background-color: ${color};`}>Non-transformed selected color</p>
+    <p style={`background-color: ${colorHex};`}>Non-transformed selected color</p>
   {/if}
 
   {#if errorColor}
