@@ -3,10 +3,9 @@
   // 👉🏽 https://github.com/sveltejs/kit/issues/10501
 
   import { type Oklch } from 'culori/fn';
-  import OpacityShades from './OpacityShades.svelte';
-  import ColorSelector from './dev/ColorSelector.svelte';
-
   import { convertToOklch, formatToHex } from '../utils/colors.ts';
+  import ColorSelector from './dev/ColorSelector.svelte';
+  import OpacityShades from './OpacityShades.svelte';
 
   let color = '#ff7000';
   let colorHex = color;
