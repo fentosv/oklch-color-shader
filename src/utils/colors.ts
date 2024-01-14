@@ -28,15 +28,15 @@ export const p3 = useMode(modeP3)
 const oklchConverter = converter('oklch')
 const rgbConverter = converter('rgb')
 
-function formatOklchValue(num: number) {
+function round(num: number) {
   //Delete trailing 0 and only 3 decimals
   return parseFloat(num.toFixed(3))
 }
 
 export function formatOklchToString(color: Oklch) {
   const { l, c, h, alpha } = color
-  return `oklch(${formatOklchValue(l)} ${formatOklchValue(c)}${h ? ' ' + formatOklchValue(h) : ''}${
-    alpha && alpha !== 1 ? ' ' + formatOklchValue(alpha) : ''
+  return `oklch(${round(l)} ${round(c)}${h ? ' ' + round(h) : ''}${
+    alpha && alpha !== 1 ? ' ' + round(alpha) : ''
   })`
 }
 
