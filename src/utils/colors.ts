@@ -35,8 +35,8 @@ function formatOklchValue(num: number) {
 
 export function formatOklchToString(color: Oklch) {
   const { l, c, h, alpha } = color
-  return `oklch(${formatOklchValue(l)} ${formatOklchValue(c)} ${h ? formatOklchValue(h) : ''}  ${
-    alpha ? formatOklchValue(alpha) : ''
+  return `oklch(${formatOklchValue(l)} ${formatOklchValue(c)}${h ? ' ' + formatOklchValue(h) : ''}${
+    alpha && alpha !== 1 ? ' ' + formatOklchValue(alpha) : ''
   })`
 }
 
