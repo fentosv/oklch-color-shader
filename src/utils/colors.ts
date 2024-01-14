@@ -1,19 +1,20 @@
 import {
   converter,
+  filterInvert,
+  formatCss,
   formatHex,
-  useMode,
-  modeOklch,
-  modeRec2020,
-  modeOklab,
-  modeXyz65,
-  modeRgb,
-  modeLch,
   modeHsl,
   modeLab,
+  modeLch,
+  modeOklab,
+  modeOklch,
   modeP3,
-  type Oklch,
+  modeRec2020,
+  modeRgb,
+  modeXyz65,
+  useMode,
   type Color,
-  filterInvert,
+  type Oklch,
 } from 'culori/fn'
 
 export const oklch = useMode(modeOklch)
@@ -29,16 +30,18 @@ export const p3 = useMode(modeP3)
 const oklchConverter = converter('oklch')
 const rgbConverter = converter('rgb')
 
-function round(num: number) {
-  //Delete trailing 0 and only 3 decimals
-  return parseFloat(num.toFixed(3))
+function toPercent(value: number): string {
+  return `${clean(100 * value)}%`
+}
+
+//Delete trailing 0 and only 'precision' decimals
+function round(num: number, precision: number) {
+  return parseFloat(num.toFixed(precision))
 }
 
 export function formatOklchToCss(color: Oklch) {
-  const { l, c, h, alpha } = color
-  return `oklch(${round(l)} ${round(c)}${h ? ' ' + round(h) : ''}${
-    alpha && alpha !== 1 ? ' ' + round(alpha) : ''
-  })`
+  // TODO round values
+  return formatCss(color)
 }
 
 export function formatToHex(color: Color) {
