@@ -33,7 +33,7 @@ function round(num: number) {
   return parseFloat(num.toFixed(3))
 }
 
-export function formatOklchToString(color: Oklch) {
+export function formatOklchToCss(color: Oklch) {
   const { l, c, h, alpha } = color
   return `oklch(${round(l)} ${round(c)}${h ? ' ' + round(h) : ''}${
     alpha && alpha !== 1 ? ' ' + round(alpha) : ''
