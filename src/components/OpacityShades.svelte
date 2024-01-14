@@ -1,19 +1,19 @@
 <script lang="ts">
   import { type Oklch } from 'culori/fn';
-  import { formatOklchToCss, getOpacityShades } from '../utils/colors';
+  import { getOpacityShades } from '../utils/colors';
+  import ColorCard from './ColorCard.svelte';
 
   export let color: Oklch;
-  let colorArray: string[] = [];
+
+  let colorArray: Oklch[] = [];
 
   getOpacityShades(color);
 </script>
 
 <article>
-  <p style={`background-color: ${formatOklchToCss(color)};`}>Oklch selected color</p>
-
   {#if colorArray.length > 0}
     {#each colorArray as genColor}
-      <p style={`background-color: ${genColor};`}>Result</p>
+      <ColorCard color={genColor} />
     {/each}
   {/if}
 </article>
