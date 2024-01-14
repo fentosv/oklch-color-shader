@@ -10,8 +10,8 @@
     "astro": "astro",
     "check": "tsc --noEmit",
     "oxlint": "npx --yes oxlint@latest",
-    "lint": "eslint --ext .js,.astro src",
-    "lint:fix": "eslint --ext .js,.astro src --fix",
+    "lint": "eslint --ext .js,.ts,.astro,.svelte src",
+    "lint:fix": "eslint --ext .js,.ts,.astro,.svelte src --fix",
     "prettier": "prettier . --write"
   },
   "dependencies": {
