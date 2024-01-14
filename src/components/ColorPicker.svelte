@@ -11,7 +11,6 @@
   let color = '#ff7000';
   let colorHex = color;
   let colorOklch: Oklch;
-
   let errorColor: boolean = false;
 
   $: {
@@ -36,8 +35,8 @@
 </script>
 
 <article>
-  <SupportedColors></SupportedColors>
-  <ColorSelector bind:color={color}></ColorSelector>
+  <SupportedColors />
+  <ColorSelector bind:color={color} />
 
   <form action="">
     <label>
