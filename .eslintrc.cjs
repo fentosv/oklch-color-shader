@@ -30,7 +30,6 @@ module.exports = {
       rules: {
         'svelte/no-target-blank': 'error',
         'svelte/button-has-type': 'warn',
-        'svelte/shorthand-directive': 'error',
         'svelte/html-self-closing': [
           'error',
           {

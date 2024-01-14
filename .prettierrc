@@ -24,6 +24,7 @@
       "options": {
         "semi": true,
         "singleAttributePerLine": false,
+        "svelteAllowShorthand": false,
         "svelteBracketNewLine": true,
         "svelteIndentScriptAndStyle": true,
         "svelteSortOrder": "options-scripts-markup-styles",
