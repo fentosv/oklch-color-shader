@@ -5,7 +5,7 @@
   import { type Oklch } from 'culori/fn';
   import { convertToOklch, formatToHex } from '../utils/colors.ts';
   import ColorSelector from './dev/ColorSelector.svelte';
-  import OpacityShades from './OpacityShades.svelte';
+  import ShadesLayout from './ShadesLayout.svelte';
   import SupportedColors from './SupportedColors.svelte';
 
   let color = '#ff7000';
@@ -59,7 +59,7 @@
   {/if}
 
   {#if colorOklch}
-    <OpacityShades color={colorOklch} />
+    <ShadesLayout color={colorOklch} />
   {/if}
 </article>
 
