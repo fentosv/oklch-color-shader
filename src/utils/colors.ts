@@ -13,6 +13,7 @@ import {
   modeP3,
   type Oklch,
   type Color,
+  filterInvert,
 } from 'culori/fn'
 
 export const oklch = useMode(modeOklch)
@@ -60,4 +61,10 @@ export function getOpacityShades(color: Oklch) {
   // console.log({ l, c, h, alpha })
   // const parsedColor = parse(color)
   // console.log(parsedColor)
+}
+
+export function invertColor(color: Color) {
+  const filterFunction = filterInvert(1, color.mode)
+  const contrastColor = filterFunction(color)
+  return formatHex(contrastColor)
 }
